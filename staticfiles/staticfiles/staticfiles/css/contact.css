@@ -1,0 +1,144 @@
+/* Контейнер для формы */
+form {
+    min-width: 25rem;
+    width: 100%; /* Делаем форму гибкой по ширине */
+    margin: 0 auto; /* Центрируем форму */
+}
+
+/* Заголовок формы */
+.title {
+    font-family: 'Pacifico', cursive;
+    color: #212529;
+    font-size: 2.5rem;
+    margin-bottom: 2rem; /* Отступ снизу */
+    text-align: center; /* Выравнивание по центру */
+}
+
+/* Стили для полей ввода */
+.form-group {
+    margin-bottom: 2rem; /* Отступ между группами полей */
+}
+
+.form-control {
+    background-color: #f2f6f8;
+    border-radius: 2rem;
+    border: none;
+    box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.11);
+    height: 3.3rem; /* Устанавливаем стандартную высоту */
+    padding: 0.5rem 2.5rem; /* Отступы для внутреннего содержимого */
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+    color: #212529;
+}
+
+.form-control:focus {
+    background-color: #f2f6f8;
+    border: none;
+    box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.11);
+}
+
+/* Плейсхолдер */
+::placeholder {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #838788;
+}
+
+/* Выравнивание иконок в полях */
+.form-group .icon {
+    color: #57565c;
+    height: 1.3rem;
+    position: absolute;
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%); /* Центрируем иконки по вертикали */
+}
+
+/* Настройка иконок в разных полях */
+#formName + .icon { top: 1.1rem; }
+#formEmail + .icon { top: 1.1rem; }
+#formMessage + .icon { top: 1.1rem; }
+
+/* Кнопка отправки */
+.btn.btn-primary {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    height: 3rem; /* Увеличиваем высоту кнопки */
+    line-height: 3rem; /* Выравнивание текста по центру */
+    padding: 0 3rem;
+    border: 0;
+    border-radius: 3rem;
+    background-image: linear-gradient(131deg, #ffd340, #ff923c, #ff923c, #ff923c);
+    background-size: 300% 100%;
+    transition: all 0.3s ease-in-out;
+    display: block;
+    width: 100%; /* Делаем кнопку широкой */
+}
+
+.btn.btn-primary:hover:enabled {
+    box-shadow: 0 0.5em 0.5em -0.4em #ff923cba;
+    background-size: 100% 100%;
+    transform: translateY(-0.15em);
+}
+
+/* Стили для текста в сообщении */
+.message .form-control {
+    padding: .5rem 1.8rem;
+}
+
+/* Для иконок в svg */
+svg {
+    height: 23rem;
+    margin-right: 4rem;
+}
+
+/* Анимации для иконок */
+#envelope {
+    animation: float 2s ease-in-out infinite;
+}
+
+#star1, #star2, #star3, #star4, #star5, #star6 {
+    animation: blink 1s ease-in-out infinite;
+}
+#star2 { animation-delay: 100ms; }
+#star3 { animation-delay: 500ms; }
+#star4 { animation-delay: 700ms; }
+#star5 { animation-delay: 300ms; }
+#star6 { animation-delay: 200ms; }
+
+/* Анимации для подъема и мерцания */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes blink {
+    0% { opacity: 0; }
+    50% { opacity: .5; }
+    100% { opacity: 1; }
+}
+
+/* Блок для контейнера */
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Центрируем форму по вертикали */
+}
+
+/* Общие стили для всех полей формы */
+input,
+textarea {
+    font-family: 'Quicksand', sans-serif;
+    color: #212529;
+    font-size: 1.1rem;
+    width: 100%; /* Обеспечиваем гибкость ширины */
+    box-sizing: border-box; /* Чтобы padding и border не вылезали за пределы */
+}
+
+/* Стили для полей с текстом */
+textarea {
+    resize: none; /* Убираем возможность изменять размер текстового поля */
+}
