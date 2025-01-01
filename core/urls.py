@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# core/urls.py
 from django.contrib import admin
 from django.urls import path, include
 from apps.main.views import custum_404_view, custum_500_view
@@ -21,18 +22,18 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-	path('', include('apps.main.urls')),
+    path('admin/', admin.site.urls), 
+    path('', include('apps.main.urls')),
     path('login/', include('apps.login.urls')),
     path('prof/', include('apps.trek_number.urls')),
-    #path('accounts/', include('allauth.urls')),
     path('404/', custum_404_view),
     path('500/', custum_500_view),
 ]
 
-#Http error
+# HTTP ошибки
 handler404 = 'apps.main.views.custum_404_view'
 handler500 = 'apps.main.views.custum_500_view'
+# handler403 = 'apps.main.views.custum_403_view'
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

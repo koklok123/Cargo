@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # login
-    'django.contrib.sites',
+    #'django.contrib.sites',
     # 'allauth',
     # 'allauth.account',
     'apps.login',
@@ -154,6 +154,8 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'XXXXXXX@gmail.com'  # Замените на ваш email
 EMAIL_HOST_PASSWORD = 'XXXXXXXXXXXXXXX'  # Пароль от вашего email
+
+
 
 # LOGIN_REDIRECT_URL = 'profile'
 # LOGOUT_REDIRECT_URL = 'login'

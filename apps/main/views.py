@@ -4,7 +4,10 @@ from django.views import View
 from django.views.generic import DetailView, ListView
 from apps.telegram.views import get_text
 from . forms import ReviewForm
-from django.http import HttpResponseNotFound
+from django.contrib.admin.sites import AdminSite
+from django.http import HttpResponseForbidden
+from django.contrib.admin import AdminSite
+
 # Create your views here.
 
 
@@ -16,6 +19,10 @@ def new_year(request):
 
 def custum_404_view(request, exception):
     return render(request, 'animations/404.html', status=404)
+
+
+def custom_403_view(request):
+    return render(request, 'animations/403.html', status=403)
 
 def custum_500_view(request, *args, **argv):
     return render(request, '500.html', status=500)
@@ -81,3 +88,13 @@ def contact_view(request):
         return redirect('index')
     
     return render(request, "contact.html", {'contact_form': True})
+
+
+# views.py
+from django.contrib.auth.views import LoginView
+from django.shortcuts import redirect
+from django.urls import reverse
+
+class CustomLoginView(LoginView):
+    def form_invalid(self, form):
+        return redirect(reverse(''))

@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import Osnov, Questions, News, Comment
-
 @admin.register(Osnov)
 class OsnovAdmin(admin.ModelAdmin):
 	list_display = ('name', 'job_title', 'description', 'image', 'facebook', 'instagram', 'twitter',  'phone', 'email')
