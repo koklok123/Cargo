@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse  
 from django.views import View
+from .models import Product
 
-# Create your views here.
 class ProductView(View):
     template_name = 'login/profile.html'
-     
+    
     def get(self, request):
         profile = {
             "user_name": "pon",
@@ -13,12 +14,19 @@ class ProductView(View):
             "followers": 200,
             "rating": 4.9
         }
-        orders = [
-            {"number": 1234, "product_name": "Смартфон iPhone 13", "status": "delivered", "tracking_number": "RU123456789", "date": "2024-01-15"},
-            {"number": 1235, "product_name": "Ноутбук Dell XPS 13", "status": "pending", "tracking_number": "RU987654321", "date": "2024-01-20"},
-        ]
+
+        orders = Product.objects.all()
         return render(request, self.template_name, {"profile": profile, "orders": orders})
 
     def post(self, request):
-        pass
-        return render(request, self.template_name)
+        product_name = request.POST.get('product_name')
+        tracking_number = request.POST.get('tracking_number')
+
+        Product.objects.create(
+            product=product_name,
+            trek_number=tracking_number,
+            status=False
+        )
+
+       
+        return redirect(reverse('trek:trek'))

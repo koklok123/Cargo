@@ -7,7 +7,8 @@ from . forms import ReviewForm
 from django.contrib.admin.sites import AdminSite
 from django.http import HttpResponseForbidden
 from django.contrib.admin import AdminSite
-
+from django.contrib.auth.views import LoginView
+from django.urls import reverse
 # Create your views here.
 
 
@@ -91,9 +92,6 @@ def contact_view(request):
 
 
 # views.py
-from django.contrib.auth.views import LoginView
-from django.shortcuts import redirect
-from django.urls import reverse
 
 class CustomLoginView(LoginView):
     def form_invalid(self, form):

@@ -1,14 +1,11 @@
 from django.contrib import admin
-from . models import Trek, Product
-# Register your models here.
+from .models import Product
 
-# @admin.register(Product)
-# class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('id', 'product', 'trek_number', 'status', 'date')
+    list_filter = ('status',)
+    search_fields = ('trek_number',)
 
-#     list_display = ['id', 'product', 'status', 'trek_number', 'date']
-#     list_filter = ['status', 'date']
-#     search_fields = ['product', 'trek_number']
 
-@admin.register(Trek)
-class TrekAdmin(admin.ModelAdmin):
-    list_display = ['id', 'trek_number']
+
+admin.site.register(Product, ProductAdmin)
